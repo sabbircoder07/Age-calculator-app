@@ -10,7 +10,78 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/sass/main.scss" />
+    <script type="module" src="./assets/js/controller.js"></script>
     <title>Project-04 | Age calculator app | Sabbir Ahmed</title>
   </head>
-  <body></body>
+  <body>
+    <main class="main">
+      <div class="container">
+        <div class="age-calculation-form">
+          <form class="age-calculation">
+            <div class="age-calculation-input__container">
+              <div class="age-calculation-input__column">
+                <label>Day</label>
+                <input
+                  type="text"
+                  name="day"
+                  id="day"
+                  class=""
+                  placeholder="DD"
+                />
+                <div class="error-message-day"></div>
+              </div>
+              <div class="age-calculation-input__column">
+                <label>Month</label>
+                <input
+                  type="text"
+                  name="month"
+                  id="month"
+                  class=""
+                  placeholder="MM"
+                />
+                <div class="error-message-month"></div>
+              </div>
+              <div class="age-calculation-input__column">
+                <label>Year</label>
+                <input
+                  type="text"
+                  name="year"
+                  id="year"
+                  class=""
+                  placeholder="YYYY"
+                />
+                <div class="error-message-year"></div>
+              </div>
+            </div>
+            <div class="btn-container">
+              <hr />
+              <button class="btn calculate__btn">
+                <img
+                  class="btn-image"
+                  src="./assets/images/icon-arrow.svg"
+                  alt="allow"
+                />
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="calculate-result_container">
+          <div class="calculate-result">
+            <span class="years"> -- </span> years
+          </div>
+          <div class="calculate-result">
+            <span class="months"> -- </span> months
+          </div>
+          <div class="calculate-result">
+            <span class="days"> -- </span> days
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
