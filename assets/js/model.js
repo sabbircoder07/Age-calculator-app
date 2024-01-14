@@ -13,6 +13,8 @@ export const calculateAge = function (newAgeInformation) {
     const day = newAgeInformation.day;
     const month = newAgeInformation.month;
     const year = newAgeInformation.year;
+    if (!day && !month && !year) {
+    }
     console.log(day, month, year);
   } catch (error) {
     throw error;
