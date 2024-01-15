@@ -10,13 +10,59 @@ export const state = {
 
 export const calculateAge = function (newAgeInformation) {
   try {
-    const day = newAgeInformation.day;
-    const month = newAgeInformation.month;
-    const year = newAgeInformation.year;
+    let day = +newAgeInformation.day;
+    let month = +newAgeInformation.month;
+    let year = +newAgeInformation.year;
+
     if (!day && !month && !year) {
+      console.log("its work");
+      return;
     }
-    console.log(day, month, year);
+    if (!day || (typeof day !== "number" && day > 31)) {
+      console.log("its work-1");
+      return;
+    }
+    if (!month || (typeof month !== "number" && month > 12)) {
+      console.log("its work-2");
+      return;
+    }
+
+    if (!year || (typeof year !== "number" && year > 2024)) {
+      console.log("its work-3");
+      return;
+    }
+
+    const birthDate = new Date(
+      `${year}-${
+        month.toString().length === 1
+          ? month.toString().padStart(2, "0")
+          : month
+      }-${day.toString().length === 1 ? day.toString().padStart(2, "0") : day}`
+    );
+
+    const currentDate = new Date();
+
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+    const ageDiffirenceDay = Math.floor(
+      (currentDate - birthDate) / _MS_PER_DAY
+    );
+
+    console.log(ageDiffirenceDay);
+
+    const ageCalculateYear = Math.floor(ageDiffirenceDay / 365);
+
+    const ageCalculateMonth = Math.floor(
+      (ageDiffirenceDay - ageCalculateYear * 365) / 30
+    );
+
+    const ageCalculateday =
+      ageDiffirenceDay - (ageCalculateYear * 365 + ageCalculateMonth * 30);
+
+    console.log(ageCalculateYear, ageCalculateMonth, ageCalculateday);
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
+
+//https://www.freecodecamp.org/news/how-to-validate-a-date-in-javascript/
