@@ -48,8 +48,6 @@ export const calculateAge = function (newAgeInformation) {
       (currentDate - birthDate) / _MS_PER_DAY
     );
 
-    console.log(ageDiffirenceDay);
-
     const ageCalculateYear = Math.floor(ageDiffirenceDay / 365);
 
     const ageCalculateMonth = Math.floor(
@@ -58,6 +56,10 @@ export const calculateAge = function (newAgeInformation) {
 
     const ageCalculateday =
       ageDiffirenceDay - (ageCalculateYear * 365 + ageCalculateMonth * 30);
+
+    state.age.years = ageCalculateYear.toString().padStart(2, "0");
+    state.age.mounths = ageCalculateMonth.toString().padStart(2, "0");
+    state.age.days = ageCalculateday.toString().padStart(2, "0");
 
     console.log(ageCalculateYear, ageCalculateMonth, ageCalculateday);
   } catch (error) {

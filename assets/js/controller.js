@@ -5,6 +5,7 @@ import ageCalculationView from "./view/ageCalculationView.js";
 const controlAgeCalculation = function (newAgeInformation) {
   try {
     model.calculateAge(newAgeInformation);
+    ageCalculationView.render(model.state.age);
   } catch (error) {
     console.log(error);
   }
