@@ -1,3 +1,5 @@
+import iconsError from "../../../assets/images/icon-error.svg";
+
 export default class view {
   _data;
 
@@ -6,7 +8,24 @@ export default class view {
 
     this._data = data;
     this._years.textContent = this._data.years;
-    this._months.textContent = this._data.mounths;
+    this._months.textContent = this._data.months;
     this._days.textContent = this._data.days;
+  }
+
+  _clearErrorMessage() {
+    this._parentElementError.innerHTML = "";
+    this._parentElementError.classList.remove("error-message--extend");
+    //this._email.classList.remove("invalid-email-id");
+  }
+
+  renderError(message = this._errorMessage) {
+    const murkup = `
+    <img class="error-icon" src="${iconsError}" alt="error icon">
+    <p>${message}</p>`;
+    this._clearErrorMessage();
+    this._parentElementError.classList.add("error-message--extend");
+    //this._email.classList.add("invalid-email-id");
+    //this._email.focus();
+    this._parentElementError.insertAdjacentHTML("afterbegin", murkup);
   }
 }

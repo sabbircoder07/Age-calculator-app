@@ -27,37 +27,41 @@
               <div class="age-calculation-input__column">
                 <label>Day</label>
                 <input
-                  type="text"
+                  type="number"
                   name="day"
                   id="day"
                   class=""
+                  min="1"
+                  max="31"
                   placeholder="DD"
                 />
-                <div class="error-message-day"></div>
               </div>
               <div class="age-calculation-input__column">
                 <label>Month</label>
                 <input
-                  type="text"
+                  type="number"
                   name="month"
                   id="month"
                   class=""
+                  min="1"
+                  max="12"
                   placeholder="MM"
                 />
-                <div class="error-message-month"></div>
               </div>
               <div class="age-calculation-input__column">
                 <label>Year</label>
                 <input
-                  type="text"
+                  type="number"
                   name="year"
                   id="year"
                   class=""
+                  min="1900"
+                  max=""
                   placeholder="YYYY"
                 />
-                <div class="error-message-year"></div>
               </div>
             </div>
+            <div class="error-message"></div>
             <div class="btn-container">
               <hr />
               <button class="btn calculate__btn">

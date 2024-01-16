@@ -78,9 +78,10 @@ body {
 }
 
 label {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: $color-light-grey;
+  font-size: 1.2rem;
+  color: #adb5bd;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 input {
@@ -90,8 +91,19 @@ input {
   padding: 1rem 0.8rem;
   box-shadow: 0 0 0 1px #ddd;
   border-radius: 0.5rem;
-  width: 100%;
+  width: 8rem;
   transition: all 0.3s;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 
   &::placeholder {
     color: $color-smokey-grey;
@@ -109,6 +121,7 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: -5px;
 }
 
 .btn {
@@ -131,6 +144,37 @@ hr {
   width: 100%;
   border: 1px solid $color-light-grey;
   height: 1px;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #c92a2a;
+  width: 80%;
+  transition: all 0.3s;
+}
+
+.error-message--extend {
+  background-color: #ffe3e3;
+  height: 3rem;
+  padding: 0.8rem 0.5rem;
+  transition: all 0.3s;
+  margin-bottom: -20px;
+}
+
+.error-icon {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.invalid-email-id:focus {
+  outline: none;
+  background-color: #ffe3e3;
+  box-shadow: 0 0 0 1px #ff8787;
 }
 
 .btn:hover {

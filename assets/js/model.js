@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const state = {
   age: {
     years: "",
-    mounths: "",
+    months: "",
     days: "",
   },
 };
@@ -15,21 +15,17 @@ export const calculateAge = function (newAgeInformation) {
     let year = +newAgeInformation.year;
 
     if (!day && !month && !year) {
-      console.log("its work");
-      return;
+      throw new Error("Please Enter Your Birth Date.");
     }
-    if (!day || (typeof day !== "number" && day > 31)) {
-      console.log("its work-1");
-      return;
+    if (!day || typeof day !== "number" || day > 31) {
+      throw new Error("Please Enter Your Valid Birth Day.");
     }
-    if (!month || (typeof month !== "number" && month > 12)) {
-      console.log("its work-2");
-      return;
+    if (!month || typeof month !== "number" || month > 12) {
+      throw new Error("Please Enter Your Valid Birth Month.");
     }
 
-    if (!year || (typeof year !== "number" && year > 2024)) {
-      console.log("its work-3");
-      return;
+    if (!year || typeof year !== "number" || year > new Date().getFullYear()) {
+      throw new Error("Please Enter Your Valid  Birth Year.");
     }
 
     const birthDate = new Date(
@@ -42,28 +38,32 @@ export const calculateAge = function (newAgeInformation) {
 
     const currentDate = new Date();
 
-    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+    if (birthDate > currentDate) {
+      throw new Error("Please Enter Your Valid Birth Date.");
+    } else {
+      const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-    const ageDiffirenceDay = Math.floor(
-      (currentDate - birthDate) / _MS_PER_DAY
-    );
+      const ageDiffirenceDay = Math.floor(
+        (currentDate - birthDate) / _MS_PER_DAY
+      );
 
-    const ageCalculateYear = Math.floor(ageDiffirenceDay / 365);
+      const ageCalculateYear = Math.floor(ageDiffirenceDay / 365);
 
-    const ageCalculateMonth = Math.floor(
-      (ageDiffirenceDay - ageCalculateYear * 365) / 30
-    );
+      const ageCalculateMonth = Math.floor(
+        (ageDiffirenceDay - ageCalculateYear * 365) / 30
+      );
 
-    const ageCalculateday =
-      ageDiffirenceDay - (ageCalculateYear * 365 + ageCalculateMonth * 30);
+      const ageCalculateday =
+        ageDiffirenceDay - (ageCalculateYear * 365 + ageCalculateMonth * 30);
 
-    state.age.years = ageCalculateYear.toString().padStart(2, "0");
-    state.age.mounths = ageCalculateMonth.toString().padStart(2, "0");
-    state.age.days = ageCalculateday.toString().padStart(2, "0");
+      state.age.years = ageCalculateYear.toString().padStart(2, "0");
+      state.age.months = ageCalculateMonth.toString().padStart(2, "0");
+      state.age.days = ageCalculateday.toString().padStart(2, "0");
 
-    console.log(ageCalculateYear, ageCalculateMonth, ageCalculateday);
+      console.log(ageCalculateYear, ageCalculateMonth, ageCalculateday);
+    }
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
