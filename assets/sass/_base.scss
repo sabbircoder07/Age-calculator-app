@@ -65,20 +65,21 @@ body {
   flex-direction: column;
   width: 45rem;
   height: auto;
-  padding: 4.2rem;
+  padding: 3rem;
   border-radius: 9px;
   border-bottom-right-radius: 10rem;
 }
 
 .age-calculation-input__container {
   display: flex;
-  gap: 1.8rem;
+  gap: 1rem;
   width: 80%;
   margin-bottom: 0.8rem;
 }
 
 label {
   font-size: 1.2rem;
+  font-weight: 400;
   color: #adb5bd;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -91,7 +92,7 @@ input {
   padding: 1rem 0.8rem;
   box-shadow: 0 0 0 1px #ddd;
   border-radius: 0.5rem;
-  width: 8rem;
+  width: 10rem;
   transition: all 0.3s;
 
   &::-webkit-outer-spin-button,
@@ -159,16 +160,16 @@ hr {
 }
 
 .error-message--extend {
-  background-color: #ffe3e3;
-  height: 3rem;
+  background-color: #ffc9c9;
+  height: 3.2rem;
   padding: 0.8rem 0.5rem;
+  margin-bottom: -2rem;
   transition: all 0.3s;
-  margin-bottom: -20px;
 }
 
 .error-icon {
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
 .invalid-email-id:focus {
@@ -191,4 +192,57 @@ hr {
 }
 .calculate-result span {
   color: $primary-color-Purple;
+}
+
+.loader {
+  width: 106px;
+  height: 56px;
+  display: block;
+  margin: 30px auto;
+  background-image: linear-gradient(#e1e1e1 50px, transparent 0),
+    linear-gradient(#e1e1e1 50px, transparent 0),
+    linear-gradient(#e1e1e1 50px, transparent 0),
+    linear-gradient(#e1e1e1 50px, transparent 0),
+    radial-gradient(circle 14px, #e1e1e1 100%, transparent 0);
+  background-size: 48px 15px, 15px 35px, 15px 35px, 25px 15px, 28px 28px;
+  background-position: 25px 5px, 58px 20px, 25px 17px, 2px 37px, 76px 0px;
+  background-repeat: no-repeat;
+  position: relative;
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+
+.loader::after,
+.loader::before {
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 6px solid #e1e1e1;
+  border-radius: 50%;
+  left: -45px;
+  top: -10px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#e1e1e1 64px, transparent 0),
+    linear-gradient(#e1e1e1 66px, transparent 0),
+    radial-gradient(circle 4px, #e1e1e1 100%, transparent 0);
+  background-size: 40px 1px, 1px 40px, 8px 8px;
+  background-position: center center;
+  box-sizing: border-box;
+  animation: bike 0.3s linear infinite;
+}
+
+.loader::before {
+  left: 25px;
+  top: 60px;
+}
+
+@keyframes bike {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

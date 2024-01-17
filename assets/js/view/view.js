@@ -4,7 +4,8 @@ export default class view {
   _data;
 
   render(data, render = true) {
-    if (!data || (Array.isArray(data) && data.length === 0)) return;
+    if (!data || (Array.isArray(data) && data.length === 0))
+      return this.renderError();
 
     this._data = data;
     this._years.textContent = this._data.years;
@@ -17,6 +18,19 @@ export default class view {
     this._parentElementError.classList.remove("error-message--extend");
     //this._email.classList.remove("invalid-email-id");
   }
+
+  _clearAgeResultInformation() {
+    this._parentElementAgeCalculationResult.innerHTML = "";
+  }
+
+  renderASpinner = function () {
+    const markup = `<span class="loader"></span>`;
+    this._clearAgeResultInformation();
+    this._parentElementAgeCalculationResult.insertAdjacentHTML(
+      "afterbegin",
+      markup
+    );
+  };
 
   renderError(message = this._errorMessage) {
     const murkup = `
