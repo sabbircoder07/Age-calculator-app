@@ -13,11 +13,12 @@ $gradient: linear-gradient(
   $primary-color-light-red
 );
 
-$bp-large: 96.2em; // 1440px
+$bp-large: 96.25em; // 1440px
 $bp-medium: 61.25em; // 980px
 $bp-small: 37.25em; // 600px
 $bp-smaller: 31.25em; // 500px
 $bp-smallest: 25.25em; // 375px
+$bp-smallest-extend: 20.25em; // 300px
 
 * {
   margin: 0;
@@ -33,10 +34,6 @@ $bp-smallest: 25.25em; // 375px
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-
-  @media only screen and (max-width: $bp-small) {
-    font-size: 60%;
-  }
 
   @media only screen and (max-width: $bp-smallest) {
     font-size: 55%;
@@ -63,11 +60,19 @@ body {
   background-color: $color-white;
   display: flex;
   flex-direction: column;
-  width: 45rem;
+  width: 42rem;
   height: auto;
   padding: 3rem;
   border-radius: 9px;
   border-bottom-right-radius: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 38rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest-extend) {
+    width: 28rem;
+  }
 }
 
 .age-calculation-input__container {
@@ -75,12 +80,20 @@ body {
   gap: 1rem;
   width: 80%;
   margin-bottom: 0.8rem;
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 1.8rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest-extend) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }
 
 label {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #adb5bd;
+  color: $color-light-grey;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -92,8 +105,16 @@ input {
   padding: 1rem 0.8rem;
   box-shadow: 0 0 0 1px #ddd;
   border-radius: 0.5rem;
-  width: 10rem;
+  width: 8rem;
   transition: all 0.3s;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 7rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest-extend) {
+    width: 6rem;
+  }
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -123,6 +144,7 @@ input {
   justify-content: space-between;
   align-items: center;
   margin-top: -5px;
+  margin-bottom: 0.8rem;
 }
 
 .btn {
@@ -157,14 +179,25 @@ hr {
   color: #c92a2a;
   width: 80%;
   transition: all 0.3s;
+  @media only screen and (max-width: $bp-smallest-extend) {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
 
 .error-message--extend {
-  background-color: #ffc9c9;
+  background-color: #ffe3e3;
   height: 3.2rem;
   padding: 0.8rem 0.5rem;
   margin-bottom: -2rem;
   transition: all 0.3s;
+  @media only screen and (max-width: $bp-small) {
+    margin-top: -1rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest-extend) {
+    margin-bottom: 1rem;
+  }
 }
 
 .error-icon {
@@ -172,10 +205,10 @@ hr {
   width: 1.2rem;
 }
 
-.invalid-email-id:focus {
+.invalid-input:focus {
   outline: none;
-  background-color: #ffe3e3;
-  box-shadow: 0 0 0 1px #ff8787;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px #fa5252;
 }
 
 .btn:hover {
@@ -185,10 +218,14 @@ hr {
 .calculate-result_container {
   display: flex;
   flex-direction: column;
+  height: 15.6rem;
   font-size: 5rem;
   font-weight: 800;
   font-style: italic;
   line-height: 1;
+  @media only screen and (max-width: $bp-smallest-extend) {
+    font-size: 4rem;
+  }
 }
 .calculate-result span {
   color: $primary-color-Purple;
@@ -199,11 +236,11 @@ hr {
   height: 56px;
   display: block;
   margin: 30px auto;
-  background-image: linear-gradient(#e1e1e1 50px, transparent 0),
-    linear-gradient(#e1e1e1 50px, transparent 0),
-    linear-gradient(#e1e1e1 50px, transparent 0),
-    linear-gradient(#e1e1e1 50px, transparent 0),
-    radial-gradient(circle 14px, #e1e1e1 100%, transparent 0);
+  background-image: linear-gradient(#2b8a3e 50px, transparent 0),
+    linear-gradient(#2b8a3e 50px, transparent 0),
+    linear-gradient(#2b8a3e 50px, transparent 0),
+    linear-gradient(#2b8a3e 50px, transparent 0),
+    radial-gradient(circle 14px, #2b8a3e 100%, transparent 0);
   background-size: 48px 15px, 15px 35px, 15px 35px, 25px 15px, 28px 28px;
   background-position: 25px 5px, 58px 20px, 25px 17px, 2px 37px, 76px 0px;
   background-repeat: no-repeat;
@@ -218,14 +255,14 @@ hr {
   position: absolute;
   width: 56px;
   height: 56px;
-  border: 6px solid #e1e1e1;
+  border: 6px solid #f76707;
   border-radius: 50%;
   left: -45px;
   top: -10px;
   background-repeat: no-repeat;
-  background-image: linear-gradient(#e1e1e1 64px, transparent 0),
-    linear-gradient(#e1e1e1 66px, transparent 0),
-    radial-gradient(circle 4px, #e1e1e1 100%, transparent 0);
+  background-image: linear-gradient(#fa5252 64px, transparent 0),
+    linear-gradient(#fa5252 66px, transparent 0),
+    radial-gradient(circle 4px, #fa5252 100%, transparent 0);
   background-size: 40px 1px, 1px 40px, 8px 8px;
   background-position: center center;
   box-sizing: border-box;

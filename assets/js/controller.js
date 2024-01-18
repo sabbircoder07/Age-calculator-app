@@ -6,7 +6,9 @@ const controlAgeCalculation = function (newAgeInformation) {
   try {
     ageCalculationView.renderASpinner();
     model.calculateAge(newAgeInformation);
-    ageCalculationView.render(model.state.age);
+    setTimeout(function () {
+      ageCalculationView.render(model.state.age);
+    }, confi.SHOW_AGE_SEC * 1000);
   } catch (error) {
     ageCalculationView.renderError(error.message);
     setTimeout(function () {

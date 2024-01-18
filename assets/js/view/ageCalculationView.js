@@ -18,14 +18,12 @@ class AgeCalculationView extends view {
   _days = document.querySelector(".days");
 
   paddingWithZeroDay = function (event) {
-    console.log("Its Work");
     this._inputDays.value.toString().length === 1
       ? (this._inputDays.value = this._inputDays.value.padStart(2, "0"))
       : "";
   };
 
   paddingWithZeroMonth = function () {
-    console.log("Its Work");
     this._inputMonths.value.toString().length === 1
       ? (this._inputMonths.value = this._inputMonths.value.padStart(2, "0"))
       : "";
@@ -38,7 +36,8 @@ class AgeCalculationView extends view {
         event.key !== "Backspace" &&
         event.key !== "Delete" &&
         event.key !== "ArrowLeft" &&
-        event.key !== "ArrowRight"
+        event.key !== "ArrowRight" &&
+        event.key !== "Tab"
       ) {
         event.preventDefault();
       }
@@ -56,7 +55,8 @@ class AgeCalculationView extends view {
         event.key !== "Backspace" &&
         event.key !== "Delete" &&
         event.key !== "ArrowLeft" &&
-        event.key !== "ArrowRight"
+        event.key !== "ArrowRight" &&
+        event.key !== "Tab"
       ) {
         event.preventDefault();
       }
@@ -74,7 +74,8 @@ class AgeCalculationView extends view {
         event.key !== "Backspace" &&
         event.key !== "Delete" &&
         event.key !== "ArrowLeft" &&
-        event.key !== "ArrowRight"
+        event.key !== "ArrowRight" &&
+        event.key !== "Tab"
       ) {
         event.preventDefault();
       }
@@ -95,13 +96,13 @@ class AgeCalculationView extends view {
 
   _generateMarkup() {
     return `<div class="calculate-result">
-    <span class="years">${this._data.years}</span> years
+    <span class="years">${this._data.years}</span> Years
   </div>
   <div class="calculate-result">
-    <span class="months">${this._data.months}</span> months
+    <span class="months">${this._data.months}</span> Months
   </div>
   <div class="calculate-result">
-    <span class="days"> ${this._data.days} </span> days
+    <span class="days"> ${this._data.days} </span> Days
   </div>`;
   }
 }
