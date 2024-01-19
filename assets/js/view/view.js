@@ -84,8 +84,8 @@ export default class view {
       this._inputDays.classList.add("invalid-input");
       this._inputDays.focus();
     } else if (message === "Please Enter Your Valid Birth Month.") {
+      this._inputMonths.classList.add("invalid-input");
       this._inputMonths.focus();
-      this._inputDays.classList.add("invalid-input");
     } else if (message === "Please Enter Your Valid  Birth Year.") {
       this._inputYears.classList.add("invalid-input");
       this._inputYears.focus();
